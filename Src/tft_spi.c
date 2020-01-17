@@ -263,15 +263,20 @@ void tft_draw_circle(uint16_t row,uint16_t column,uint8_t radian)
 	SPI_ENABLE;
 	while(a<=b)
 	{
-		tft_draw_point(column-b,row-a);                     
-		tft_draw_point(column+b,row-a);                       
-		tft_draw_point(column-a,row+b);                 
-		tft_draw_point(column-b,row-a);                    
-		tft_draw_point(column-a,row-b);                       
-		tft_draw_point(column+b,row+a);                        
-		tft_draw_point(column+a,row-b);             
-		tft_draw_point(column+a,row+b);             
-		tft_draw_point(column-b,row+a);             
+		tft_draw_point(column-b,row-a);
+		tft_draw_point(column-b-1,row-a-1);
+		tft_draw_point(column-b+1,row-a+1);
+		//tft_draw_point(column+b,row-a);
+		//tft_draw_point(column-a,row+b);
+		//tft_draw_point(column-b,row-a);
+		//tft_draw_point(column-a,row-b);
+		//tft_draw_point(column+b,row+a);
+		//tft_draw_point(column+a,row-b);
+		//tft_draw_point(column+a,row+b);
+		tft_draw_point(column-b,row+a);
+		tft_draw_point(column-b-1,row+a-1);
+		tft_draw_point(column-b+1,row+a+1);
+		HAL_Delay(10);
 		a++;
 		    
 		if(di<0)di +=4*a+6;	  
@@ -280,9 +285,203 @@ void tft_draw_circle(uint16_t row,uint16_t column,uint8_t radian)
 			di+=10+4*(a-b);   
 			b--;
 		} 
-		tft_draw_point(column+a,row+b);
+		//tft_draw_point(column+a,row+b);
 	}
 	SPI_DISABLE;
+}
+void arc(uint16_t row,uint16_t column,uint8_t radian){
+	int a,b;
+		int di;
+		a=0;b=radian;
+		di=3-(radian<<1);
+		SPI_ENABLE;
+		while(a<=b)
+		{
+			tft_draw_point(column-b,row-a);
+			//tft_draw_point(column+b,row-a);
+			//tft_draw_point(column-a,row+b);
+			//tft_draw_point(column-b,row-a);
+			//tft_draw_point(column-a,row-b);
+			//tft_draw_point(column+b,row+a);
+			//tft_draw_point(column+a,row-b);
+			//tft_draw_point(column+a,row+b);
+			tft_draw_point(column-b,row+a);
+
+			//HAL_Delay(5);
+			a++;
+
+			if(di<0)di +=4*a+6;
+			else
+			{
+				di+=10+4*(a-b);
+				b--;
+			}
+			//tft_draw_point(column+a,row+b);
+		}
+		SPI_DISABLE;
+}
+
+void arc1(uint16_t row,uint16_t column,uint8_t radian){
+	int a,b;
+		int di;
+		a=0;b=radian;
+		di=3-(radian<<1);
+		SPI_ENABLE;
+		while(a<=b)
+		{
+			//tft_draw_point(column-b,row-a);
+			tft_draw_point(column+b,row-a);
+			//tft_draw_point(column-a,row+b);
+			//tft_draw_point(column-b,row-a);
+			//tft_draw_point(column-a,row-b);
+			tft_draw_point(column+b,row+a);
+			//tft_draw_point(column+a,row-b);
+			//tft_draw_point(column+a,row+b);
+			//tft_draw_point(column-b,row+a);
+
+			//HAL_Delay(5);
+			a++;
+
+			if(di<0)di +=4*a+6;
+			else
+			{
+				di+=10+4*(a-b);
+				b--;
+			}
+			//tft_draw_point(column+a,row+b);
+		}
+		SPI_DISABLE;
+}
+void arc2(uint16_t row,uint16_t column,uint8_t radian){
+	int a,b;
+		int di;
+		a=0;b=radian;
+		di=3-(radian<<1);
+		SPI_ENABLE;
+		while(a<=b)
+		{
+			//tft_draw_point(column-b,row-a);
+			//tft_draw_point(column+b,row-a);
+			tft_draw_point(column-a,row+b);
+			//tft_draw_point(column-b,row-a);
+			//tft_draw_point(column-a,row-b);
+			//tft_draw_point(column+b,row+a);
+			//tft_draw_point(column+a,row-b);
+			tft_draw_point(column+a,row+b);
+			//tft_draw_point(column-b,row+a);
+
+			//HAL_Delay(5);
+			a++;
+
+			if(di<0)di +=4*a+6;
+			else
+			{
+				di+=10+4*(a-b);
+				b--;
+			}
+			//tft_draw_point(column+a,row+b);
+		}
+		SPI_DISABLE;
+}
+void arc3(uint16_t row,uint16_t column,uint8_t radian){
+	int a,b;
+		int di;
+		a=0;b=radian;
+		di=3-(radian<<1);
+		SPI_ENABLE;
+		while(a<=b)
+		{
+			//tft_draw_point(column-b,row-a);
+			//tft_draw_point(column+b,row-a);
+			//tft_draw_point(column-a,row+b);
+			//tft_draw_point(column-b,row-a);
+			tft_draw_point(column-a,row-b);
+			//tft_draw_point(column+b,row+a);
+			tft_draw_point(column+a,row-b);
+			//tft_draw_point(column+a,row+b);
+			//tft_draw_point(column-b,row+a);
+
+			//HAL_Delay(5);
+			a++;
+
+			if(di<0)di +=4*a+6;
+			else
+			{
+				di+=10+4*(a-b);
+				b--;
+			}
+			//tft_draw_point(column+a,row+b);
+		}
+		SPI_DISABLE;
+}
+void tft_draw_circle1(uint16_t x_centre,uint16_t y_centre,uint8_t r){
+	int x = r, y = 0;
+
+	    // Printing the initial point on the axes
+	    // after translation
+	    //printf("(%d, %d) ", x + x_centre, y + y_centre);
+		SPI_ENABLE;
+	    tft_draw_point(x + x_centre,y + y_centre);
+
+	    // When radius is zero only a single
+	    // point will be printed
+	    if (r > 0)
+	    {
+	        //printf("(%d, %d) ", x + x_centre, -y + y_centre);
+	        tft_draw_point(x + x_centre,-y + y_centre);
+	        //printf("(%d, %d) ", y + x_centre, x + y_centre);
+	        tft_draw_point(y + x_centre,x + y_centre);
+	       // printf("(%d, %d)\n", -y + x_centre, x + y_centre);
+	        tft_draw_point(-y + x_centre,-x + y_centre);
+	    }
+
+	    // Initialising the value of P
+	    int P = 1 - r;
+	    while (x > y)
+	    {
+	        y++;
+
+	        // Mid-point is inside or on the perimeter
+	        if (P <= 0)
+	            P = P + 2*y + 1;
+
+	        // Mid-point is outside the perimeter
+	        else
+	        {
+	            x--;
+	            P = P + 2*y - 2*x + 1;
+	        }
+
+	        // All the perimeter points have already been printed
+	        if (x < y)
+	            break;
+
+	        // Printing the generated point and its reflection
+	        // in the other octants after translation
+	       // printf("(%d, %d) ", x + x_centre, y + y_centre);
+	        tft_draw_point(x + x_centre,y + y_centre);
+	       // printf("(%d, %d) ", -x + x_centre, y + y_centre);
+	        tft_draw_point(-x + x_centre,y + y_centre);
+	       // printf("(%d, %d) ", x + x_centre, -y + y_centre);
+	        tft_draw_point(x + x_centre,-y + y_centre);
+	       // printf("(%d, %d)\n", -x + x_centre, -y + y_centre);
+	        tft_draw_point(-x + x_centre,-y + y_centre);
+
+	        // If the generated point is on the line x = y then
+	        // the perimeter points have already been printed
+	        if (x != y)
+	        {
+	           // printf("(%d, %d) ", y + x_centre, x + y_centre);
+	            tft_draw_point(y + x_centre,x + y_centre);
+	           // printf("(%d, %d) ", -y + x_centre, x + y_centre);
+	            tft_draw_point(-y + x_centre,x + y_centre);
+	           // printf("(%d, %d) ", y + x_centre, -x + y_centre);
+	            tft_draw_point(y + x_centre,-x + y_centre);
+	           // printf("(%d, %d)\n", -y + x_centre, -x + y_centre);
+	            tft_draw_point(-y + x_centre,-x + y_centre);
+	        }
+	    }
+	    SPI_DISABLE;
 }
 
 void tft_fill(uint16_t row1,uint16_t column1,uint16_t row2,uint16_t column2,uint16_t color)

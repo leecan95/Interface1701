@@ -685,13 +685,34 @@ void FormInterface(void) {
 }
 void IAQform(void){
 
-	  tft_draw_circle(150,119,87);
-	  tft_draw_circle(150,119,88);
-	  tft_draw_circle(150,119,89);
-	  tft_draw_circle(150,119,90);
-	  tft_draw_circle(150,119,91);
-	  tft_draw_circle(150,119,92);
+	//for(int arc(150,119,87);toado = 100; toado <= 119; toado = toado + 2){
+	arc2(150,119,87);
+	arc2(150,119,88);
+	arc2(150,119,89);
+	arc2(150,119,90);
+	HAL_Delay(200);
+	arc(150,119,87);
+	arc(150,119,88);
+	arc(150,119,89);
+	arc(150,119,90);
+	HAL_Delay(200);
+	arc3(150,119,87);
+	arc3(150,119,88);
+	arc3(150,119,89);
+	arc3(150,119,90);
+	HAL_Delay(200);
+	arc1(150,119,87);
+	arc1(150,119,88);
+	arc1(150,119,89);
+	arc1(150,119,90);
+	//HAL_Delay(200);
 
+	 // tft_draw_circle1(150,toado,88);
+	  //tft_draw_circle1(150,toado,89);
+	 // tft_draw_circle1(150,toado,90);
+	  //tft_draw_circle1(150,toado,91);
+	 // tft_draw_circle1(150,toado,92);
+	//}
 
 	  tft_puts26x48(100,80,(int8_t*)"IAQ",TFT_STRING_MODE_NO_BACKGROUND);
 	  tft_puts26x48(100,81,(int8_t*)"IAQ",TFT_STRING_MODE_NO_BACKGROUND);

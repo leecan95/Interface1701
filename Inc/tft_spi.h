@@ -93,6 +93,11 @@ void tft_init(void);
 void tft_clear(uint16_t Color);
 void tft_draw_line(uint16_t row1, uint16_t column1, uint16_t row2, uint16_t column2);
 void tft_draw_circle(uint16_t row,uint16_t column,uint8_t radian);
+void arc(uint16_t row,uint16_t column,uint8_t radian);
+void arc1(uint16_t row,uint16_t column,uint8_t radian);
+void arc2(uint16_t row,uint16_t column,uint8_t radian);
+void arc3(uint16_t row,uint16_t column,uint8_t radian);
+void tft_draw_circle1(uint16_t x_centre,uint16_t y_centre,uint8_t r);
 /* (row1,clumn1) ************************/
 /* **************************************/
 /* **************************************/
